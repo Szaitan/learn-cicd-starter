@@ -25,7 +25,7 @@ type apiConfig struct {
 //go:embed static/*
 var staticFiles embed.FS
 
-func main(){
+func main() {
 	fmt.Println(GetAPIKey())
 
 	err := godotenv.Load(".env")
