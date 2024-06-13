@@ -20,5 +20,15 @@ jobs:
 
       - name: My Test
         run: go test ./... -cover
+        
+jobs:
+  tests:
+    name: Formatting
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out formating
+        run: test -z $(go fmt ./...)
+
 
         
