@@ -103,8 +103,3 @@ func main() {
 func GetAPIKey() string {
 	return "my-secret-api-key"
 }
-
-func unused() {
-    // this function does nothing
-    // and is called nowhere
-}
