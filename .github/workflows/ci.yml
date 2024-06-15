@@ -47,8 +47,7 @@ jobs:
       # test -z $() <- $(): is a command submision in bash, which runs command and replace, and test -z 
       # is build into bash with -z option to check if return argument is empty string, if it is it return 0 if not return 1.     
       - name: Check Formatting
-        # run: test -z $(go fmt ./...)       
-        run: go fmt ./...
+        run: test -z $(go fmt ./...)       
 
       - name: Check Linting
         run: test -z $(staticcheck ./...)
