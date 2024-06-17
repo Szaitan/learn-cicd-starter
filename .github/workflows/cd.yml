@@ -16,7 +16,7 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v4
         with:
-          go-version: '1.22'
+          go-version: '1.22.3'
 
       - name: Build app
         run: ./scripts/buildprod.sh
@@ -26,8 +26,15 @@ jobs:
         with:
           credentials_json: ${{ secrets.GCP_CREDENTIALS }}
 
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v2
+        with:
+          version: 'latest'
+          service_account_key: ${{ secrets.GCP_CREDENTIALS }}
+          project_id: notely-426715
 
       - name: Use gcloud CLI
         run: gcloud info
