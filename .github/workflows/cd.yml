@@ -35,7 +35,7 @@ jobs:
         run: gcloud info
 
       - name: Build and push Docker image
-        run: gcloud builds submit --tag us-central1-docker.pkg.dev/notely3-426816/notely3-ar-repo/notely3:v.1.1 .
+        run: gcloud builds submit --tag us-central1-docker.pkg.dev/notely3-426816/notely3-ar-repo/notely3:latest .
 
       - name: Install gose
         run: go install github.com/pressly/goose/v3/cmd/goose@latest
@@ -44,4 +44,4 @@ jobs:
         run: ./scripts/migrateup.sh
 
       - name: Deploy to Cloud Run
-        run: gcloud run deploy notely --image us-central1-docker.pkg.dev/notely3-426816/notely3-ar-repo/notely3:v.1.1 --region us-central1 --allow-unauthenticated --project notely3-426816 --max-instances=4
+        run: gcloud run deploy notely --image us-central1-docker.pkg.dev/notely3-426816/notely3-ar-repo/notely3:latest --region us-central1 --allow-unauthenticated --project notely3-426816 --max-instances=4
